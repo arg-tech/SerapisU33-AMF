@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Argument Mining Framework</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="http://amf.arg.tech/images/icon.png">
+    <script type="text/javascript" src="libs/jquery-1.11.1.min.js" ></script>
+</head>
+
+<body>
+
+  <header id="header" header-mobile-toggle="" class="primary-background">
+    <div class="grid mx-l"> <div> <a href="http://amf.arg.tech/" class="logo"> <img class="icon-image" src="http://amf.arg.tech/images/icon.png" alt="Logo"> <span class="logo-text">Argument Mining Framework</span> </a> <a href="http://arg.tech"><div class="mobile-menu-toggle hide-over-l"><svg class="svg-icon" data-icon="more" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M0 0h24v24H0z" fill="none"></path> <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path> </svg></div></a> </div>
+
+    <div class="header-search hide-under-l"></div> <div class="text-right"> <div class="header-links"> <div class="links text-center"> <a href="http://arg.tech"> <img class="logo-image" src="http://amf.arg.tech/images/arg-tech-w-s.png"> </a> </div> </div> </div> </div> 
+  </header>
+
+
+ <div id="main">
+
+    <div class="container px-xl py-s">
+        <div class="block">
+			The system here connects together a series of argument mining web services each of which is available as a part of the web service API provided by the Centre for Argument Technology. 
+			<br> &nbsp;
+        </div>
+        <div class="icon-list block">
+
+		 	
+        </div>
+	</div>
+ 
+	<div class="container" id="home-default">
+  	 <form action="am.php" method="post" enctype="multipart/form-data" id="myform">
+  	  <fieldset>
+        <div class="grid half gap-xxl no-row-gap">
+            <div>
+                <div id="text" class="card mb-xl">
+					<h3 class="card-title">Select Turninator</h3>
+                    <div class="px-m">
+
+
+						<select name="turninator_id" id="turninator_id">
+						<option value="turninator-01">Default Turninator</option>
+						<option value="none">None</option>
+
+						</select>
+					</div>
+					
+					
+					<h3 class="card-title">Select Propositionalizer</h3>
+                    <div class="px-m">
+
+
+						<select name="propositionalizer_id" id="propositionalizer_id">					
+						<option value="propositionalizer-01">Default Propositionalizer</option>
+							<option value="none">None</option>
+
+						</select>
+					</div>
+					
+					
+					<h3 class="card-title">Select Segmenter</h3>
+                    <div class="px-m">
+
+
+						<select name="Segmenter_id" id="Segmenter_id">
+						<option value="Segmenter-01">Default Segmenter</option>
+						<option value="none">None</option>
+
+						</select>
+					</div>
+				
+				
+                    <h3 class="card-title">Select Inference Identifiers</h3>
+                    <div class="px-m">
+
+
+						<select name="inference_id" id="inference_id">
+						<option value="DAM-01">DAM-01</option>
+						<option value="TE">BERT based Textual Entailement for AM</option>
+						<option value="DAM-02">DAM-02</option>
+						<option value="DAM-03">DAM-03</option>
+						
+						<option value="none">None</option>
+						</select>
+						<br /> &nbsp; 
+                    </div>
+					
+
+                    
+                </div>
+            </div>
+
+            <div>
+	            <div class="card mb-xl">
+                       <h3 class="card-title">Upload Text File</h3>
+                       <div class="text-center">
+			        	<br> &nbsp; &nbsp;
+			        	<input type="file" class="hidden" name="fileToUpload" id="fileToUpload"/>				     
+			            <label for="fileToUpload" id="labelToUpload" class="button outline">Choose a File...</label>
+			            <br>
+			            
+			        	<br><br> &nbsp; &nbsp;
+			        </div>
+	            </div>
+            </div>
+        </div>
+	  </fieldset>
+	  <div class="block">	
+	  	<div class="text-center">	  
+			<input id="amfButton" type="submit" class="button" name="submitUpload">
+		</div>
+	  </div>
+	 </form>
+	</div>
+</div>    
+	    	 
+<div id="footer">
+	<div id="pageloader" class="hidden text-center">	  
+		<img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="Processing..." />
+		<br>
+		Processing...
+	</div>
+</div>
+
+<script>
+	document.getElementById("fileToUpload").onchange = function () {
+    	document.getElementById("labelToUpload").innerHTML = this.value.split( '\\' ).pop();
+	};
+	document.getElementById("amfButton").onclick = function () {
+    	$("#pageloader").fadeIn();
+	};
+	
+	$(document).ready(function(){
+	  $("#myform").on("submit", function(){
+    	$("#pageloader").fadeIn();
+    	$("#amfButton").hide();
+	  });//submit
+	});//document ready
+
+</script>
+
+
+</body>
+</html> 
